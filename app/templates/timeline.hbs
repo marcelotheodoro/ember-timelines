@@ -1,12 +1,13 @@
-Timeline
+<h1>Timeline</h1>
 
-<ul>
+<div class="timeline">
 {{#each model as |milestone|}}
-  <li>
+  <div class="timeline-item">
     <div class="milestone">
       <div class="name">{{milestone.name}}</div>
+      <div class="date">{{milestone.startDate}}</div>
       <div class="point"></div>
     </div>
-  </li>
+  </div>
 {{/each}}
-</ul>
+</div>

@@ -1,11 +1,36 @@
+.timeline {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+
+  width: 100%;
+
+  border-bottom: 4px solid #eee;
+}
+
+.timeline-item {
+  flex: 1;
+  position: relative;
+  top: 10px;
+}
+
 .milestone {
+  text-align: left;
+
   .point {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     margin-top: 5px;
     margin-left: 5px;  
     
     transform: rotate(-45deg);  
     border: 2px solid #ccc;
+
+    background: #fff;
+  }
+
+  .date {
+    
   }
 }
