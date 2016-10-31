@@ -1,0 +1,9 @@
+.milestone .point {
+  width: 10px;
+  height: 10px;
+  margin-top: 5px;
+  margin-left: 5px;  
+  
+  transform: rotate(-45deg);  
+  border: 2px solid #ccc;
+}
