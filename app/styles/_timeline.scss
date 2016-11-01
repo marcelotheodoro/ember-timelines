@@ -8,7 +8,7 @@ $timelineWeight: 5px;
 
   width: 100%;
 
-  border-bottom: $timelineWeight solid #eee;
+  border-bottom: $timelineWeight solid $timelineLight;
 
   .timeline-item {
     flex: 1;

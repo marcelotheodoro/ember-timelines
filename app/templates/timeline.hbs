@@ -1,4 +1,4 @@
-<h1>Timeline</h1>
+<h1>Master Timeline</h1>
 
 {{ tasks-list timeline=model }}
 
@@ -6,7 +6,7 @@
     filter=(action 'filterByDateRange')
     as |results| }}
 
-    <h2>Short View</h2>
+    <h2>Spotlight View</h2>
 
     {{ tasks-list timeline=results }}
 {{/timeline-handles}}
