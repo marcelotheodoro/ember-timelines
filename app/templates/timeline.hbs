@@ -1,13 +1,15 @@
 <h1>Timeline</h1>
 
 <div class="timeline">
-{{#each model as |milestone|}}
-  <div class="timeline-item">
+{{#each model as |timeline_day|}}
+  <div class="timeline-item" day={{timeline_day.date}}>
+  {{#each timeline_day.milestones as |milestone|}}
     <div class="milestone">
       <div class="name">{{milestone.name}}</div>
       <div class="date">{{milestone.startDate}}</div>
       <div class="point"></div>
     </div>
+  {{/each}}
   </div>
 {{/each}}
 </div>

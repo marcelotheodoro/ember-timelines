@@ -5,8 +5,8 @@ export default function() {
     {
       id: 1,
       name: "UI Review",
-      startDate: "2016-02-14",
-      endDate: "2016-02-14"
+      startDate: "2016-03-14",
+      endDate: "2016-03-14"
     },
     {
       id: 2,
@@ -29,8 +29,8 @@ export default function() {
     {
       id: 5,
       name: "Architecture Review",
-      startDate: "2016-04-16",
-      endDate: "2016-04-16"
+      startDate: "2016-03-16",
+      endDate: "2016-03-16"
     },
     {
       id: 6,
@@ -42,8 +42,8 @@ export default function() {
     {
       id: 7,
       name: "Execution",
-      startDate: "2016-04-20",
-      endDate: "2016-05-20",
+      startDate: "2016-03-20",
+      endDate: "2016-03-21",
       banding: "orange"
     }
   ];

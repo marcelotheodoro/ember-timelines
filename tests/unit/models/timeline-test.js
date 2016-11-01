@@ -34,8 +34,7 @@ moduleFor('model:timeline', 'Unit | timeline', {
 });
 
 test('should build asDays', function(assert) {
-  const timeline = this.subject();
-  timeline.set('tasks', tasks);
+  const timeline = this.subject({tasks: tasks});
 
   let expectedDays = [
     {date: "2016-02-12", banding: "red", milestones: [
