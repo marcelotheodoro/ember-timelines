@@ -1,3 +1,5 @@
+$timelineWeight: 5px;
+
 .timeline {
   display: inline-flex;
   flex-direction: row;
@@ -6,7 +8,7 @@
 
   width: 100%;
 
-  border-bottom: 4px solid #eee;
+  border-bottom: $timelineWeight solid #eee;
 
   .timeline-item {
     flex: 1;
@@ -17,8 +19,8 @@
   .phase {
     position: absolute;
     width: 100%;
-    height: 4px;
-    bottom: 6px;
+    height: $timelineWeight;
+    bottom: 5px;
 
     &.red { background: red; }
     &.orange { background: orange; }
@@ -39,8 +41,14 @@
       background: #fff;
     }
 
+    .name {
+      color: $primaryGrey;
+      font-size: 8pt;
+    }
+
     .date {
-      
+      color: $secondaryGrey;
+      font-size: 7pt;
     }
   }
 
