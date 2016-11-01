@@ -1,27 +1,42 @@
 import Ember from 'ember';
-import _ from 'lodash/lodash';
 
 export default Ember.Component.extend({
   classNames: ['timeline-handles'],
   min: 1,
+  max: 100,
   mood: 'info',
 
   init() {
     this._super(...arguments);
     
-    this.max = this.get('timeline').length;
-    this.ticks = Array(_.range(1, this.max)).join(',');
-
-    // this.get('filter')(null, null).then((results) => this.set('results', results));
+    this.updateResults(1, 100);
   },
 
   actions: {
     handleChanged(positions) {
-      const startDate = this.get('timeline')[positions[0]-1].date;
-      const endDate = this.get('timeline')[positions[1]-1].date;
-
-      let filterAction = this.get('filter');
-      filterAction(startDate, endDate).then((filteredResults) => this.set('results', filteredResults));
+      this.updateResults(positions[0], positions[1]);
     }
+  },
+
+  updateResults(startPosition, endPosition) {
+    let {startDate, endDate} = this.getDates(startPosition, endPosition);
+    this.setResults(startDate, endDate);
+  },
+
+  setResults(startDate, endDate) {
+    let filterAction = this.get('filter');
+    filterAction(startDate, endDate).then((filteredResults) => this.set('results', filteredResults));
+  },
+
+  getDates(start, end) {
+    const dailyRatio = 100 / this.get('timeline').length;
+    
+    const startPosition = parseInt((start-1) / dailyRatio);
+    const endPosition = parseInt((end-1) / dailyRatio);
+
+    const startDate = this.get('timeline')[startPosition].date;
+    const endDate = this.get('timeline')[endPosition].date;
+
+    return {startDate, endDate};
   }
 });

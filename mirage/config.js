@@ -47,7 +47,25 @@ export default function() {
       startDate: "2016-03-20",
       endDate: "2016-03-21",
       banding: "orange"
-    }
+    },
+    {
+      id: 10,
+      name: "UI Review",
+      startDate: "2016-03-08",
+      endDate: "2016-03-08"
+    },
+    {
+      id: 11,
+      name: "UI Review",
+      startDate: "2016-03-09",
+      endDate: "2016-03-09"
+    },
+    {
+      id: 12,
+      name: "UI Review",
+      startDate: "2016-03-10",
+      endDate: "2016-03-10"
+    },
   ];
 
   this.get('/tasks', function(db, request) {
