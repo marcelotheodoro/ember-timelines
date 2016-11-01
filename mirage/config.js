@@ -36,7 +36,7 @@ export default function() {
       id: 6,
       name: "Planning",
       startDate: "2016-03-07",
-      endDate: "2016-03-23",
+      endDate: "2016-03-13",
       banding: "red"
     },
     {

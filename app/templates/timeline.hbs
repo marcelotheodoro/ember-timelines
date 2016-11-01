@@ -3,6 +3,11 @@
 <div class="timeline">
 {{#each model as |timeline_day|}}
   <div class="timeline-item" day={{timeline_day.date}}>
+
+  {{#if timeline_day.banding}}
+    <div class="phase {{timeline_day.banding}}"></div>
+  {{/if}}
+
   {{#each timeline_day.milestones as |milestone|}}
     <div class="milestone">
       <div class="name">{{milestone.name}}</div>
