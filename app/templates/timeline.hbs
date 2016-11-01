@@ -1,22 +1,12 @@
 <h1>Timeline</h1>
 
-<div class="timeline">
-{{#each model as |timeline_day|}}
-  <div class="timeline-item" day={{timeline_day.date}}>
+{{ tasks-list timeline=model }}
 
-  {{#if timeline_day.banding}}
-    <div class="phase {{timeline_day.banding}}"></div>
-  {{/if}}
+{{#timeline-handles timeline=model
+    filter=(action 'filterByDateRange')
+    as |results| }}
 
-  {{#each timeline_day.milestones as |milestone|}}
-    <div class="milestone">
-      <div class="name">{{milestone.name}}</div>
-      <div class="date">{{milestone.startDate}}</div>
-      <div class="point"></div>
-    </div>
-  {{/each}}
-  </div>
-{{/each}}
-</div>
+    <h2>Short View</h2>
 
-{{ timeline-handles timeline=model }}
+    {{ tasks-list timeline=results }}
+{{/timeline-handles}}

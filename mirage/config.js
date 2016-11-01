@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default function() {
   this.namespace = '/api';
 
@@ -48,7 +50,20 @@ export default function() {
     }
   ];
 
-  this.get('/tasks', function() {
+  this.get('/tasks', function(db, request) {
+    if(request.queryParams.startDate !== undefined && request.queryParams.endDate !== undefined) {
+      let startDate = request.queryParams.startDate;
+      let endDate = request.queryParams.endDate;
+
+      let filteredTasks = tasks.filter(function(t) {
+        return moment(t.startDate).isBetween(startDate, endDate, null, '[]') ||
+              moment(t.endDate).isBetween(startDate, endDate, null, '[]') ||
+              (moment(t.startDate).isBefore(startDate) && moment(t.endDate).isAfter(endDate));
+      });
+      return { tasks: filteredTasks };
+    }
+    
     return { tasks: tasks };
   });
+
 }

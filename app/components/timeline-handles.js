@@ -2,6 +2,7 @@ import Ember from 'ember';
 import _ from 'lodash/lodash';
 
 export default Ember.Component.extend({
+  classNames: ['timeline-handles'],
   min: 1,
   mood: 'info',
 
@@ -10,6 +11,8 @@ export default Ember.Component.extend({
     
     this.max = this.get('timeline').length;
     this.ticks = Array(_.range(1, this.max)).join(',');
+
+    // this.get('filter')(null, null).then((results) => this.set('results', results));
   },
 
   actions: {
@@ -17,8 +20,8 @@ export default Ember.Component.extend({
       const startDate = this.get('timeline')[positions[0]-1].date;
       const endDate = this.get('timeline')[positions[1]-1].date;
 
-      console.log(startDate);
-      console.log(endDate);
+      let filterAction = this.get('filter');
+      filterAction(startDate, endDate).then((filteredResults) => this.set('results', filteredResults));
     }
   }
 });
