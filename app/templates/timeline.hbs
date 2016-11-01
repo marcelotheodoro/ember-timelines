@@ -1,12 +1,19 @@
-<h1>Master Timeline</h1>
+<div id="master-timeline">
+  <h1>Master Timeline</h1>
 
-{{ tasks-list timeline=model }}
+  {{ tasks-list timeline=model }}
+</div>
 
+
+<div id="handle">
 {{#timeline-handles timeline=model
     filter=(action 'filterByDateRange')
     as |results| }}
 
-    <h2>Spotlight View</h2>
+    <div id="spotlight-view">
+      <h2>Spotlight View</h2>
 
-    {{ tasks-list timeline=results }}
+      {{ tasks-list timeline=results }}
+    </div>
 {{/timeline-handles}}
+</div>

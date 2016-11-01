@@ -4,12 +4,13 @@ export default Ember.Component.extend({
   classNames: ['timeline-handles'],
   min: 1,
   max: 100,
+  value: 60,
   mood: 'info',
 
   init() {
     this._super(...arguments);
     
-    this.updateResults(1, 100);
+    this.updateResults(this.value, this.max);
   },
 
   actions: {
