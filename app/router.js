@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('timeline');
+  this.route('tasks');
 });
 
 export default Router;

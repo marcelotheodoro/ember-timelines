@@ -1,3 +1,5 @@
+import _ from 'lodash/lodash';
+
 export default function() {
   this.namespace = '/api';
 
@@ -70,4 +72,11 @@ export default function() {
     return { tasks: tasks };
   });
 
+  this.put('/tasks/:id', function (db, request) {
+    _.remove(tasks, (task) => request.params.id === task.id);
+    let taskToUpdate = JSON.parse(request.requestBody);
+    taskToUpdate.task.id = request.params.id;
+
+    tasks.push(taskToUpdate.task);
+  });
 }
